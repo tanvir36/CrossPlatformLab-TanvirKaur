@@ -1,0 +1,51 @@
+name: Multi-OS Testing - Tanvir Kaur
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  test-ubuntu:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Testing on Ubuntu
+        run: echo "Testing on Ubuntu..."
+
+      - name: Display OS information
+        run: uname -a
+
+      - name: Create test file
+        run: echo "Ubuntu test by Tanvir Kaur" > test-ubuntu.txt
+
+      - name: Show file contents
+        run: cat test-ubuntu.txt
+
+      - name: Finish Ubuntu tests
+        run: echo "Ubuntu tests completed"
+
+  test-windows:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Testing on Windows
+        run: echo "Testing on Windows..."
+
+      - name: Display OS information
+        run: systeminfo
+
+      - name: Create test file
+        run: echo Windows test by Tanvir Kaur > test-windows.txt
+
+      - name: Show file contents
+        run: type test-windows.txt
+
+      - name: Finish Windows tests
+        run: echo "Windows tests completed"
